@@ -21,7 +21,7 @@ app.route('/lists/:name').get((req,res)=>{
   let response = "Unable to fetch data!";
   lists.forEach((list) => {
       if (list["name"] == list_name) {
-          res.status(200).send(`${list.name} includes ${list.members}`);
+          res.status(200).send(list);
       }
   });
   res.status(status).send(response);

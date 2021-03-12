@@ -16,10 +16,34 @@ const mysteryFunction0 = function (array) {
   return false;
 };
 
+//What it does:
+/* What I think it does: This function takes in an array and checks to see if each element is 7. The functin will return a new list of true/false booleans.
+
+What it actually does: 
+*/
+// Runtime: 
+/* 
+My answer: O(n)
+
+The actual answer: 
+*/
+
 const mysteryFunction1 = function (array) {
   index = 4;
   return array[index];
 };
+
+//What it does:
+/* What I think it does: Assigns a function to a variable. The function takes an an array and returns the element of the array[4].
+
+What it actually does: 
+*/
+// Runtime: Returns
+/* 
+My answer: O(1)
+
+The actual answer: 
+*/
 
 const mysteryFunction2 = function (n) {
   const primes = [];
@@ -37,6 +61,22 @@ const mysteryFunction2 = function (n) {
   return primes.length;
 };
 
+//What it does:
+/* What I think it does: 
+A variable is assigned to the function that takes in arg "n". In that function, a new array is made "primes. For as many times from 2 to n, if the number the console is looping over === 0, and not the number it's counting (j), it will return "true", starting at the #2--this will be completed for as many times from 2 to n. Otherwise, the number will be pushed to the primes array.  In the function will return the length of primes.
+
+I think in the end it'll return 0 since I believe primes will be empty.
+
+What it actually does: 
+*/
+// Runtime: Returns
+/* 
+My answer: 
+O(n^2)
+
+The actual answer: 
+*/
+
 const mysteryFunction3 = function (array) {
   myLength = array.length;
   if (myLength % 2 == 0) {
@@ -45,6 +85,18 @@ const mysteryFunction3 = function (array) {
     return "odd length";
   }
 };
+
+//What it does:
+/* What I think it does: 
+
+What it actually does: 
+*/
+// Runtime: Returns
+/* 
+My answer: 
+
+The actual answer: 
+*/
 
 const mysteryFunction4 = function (string) {
   let eCount = 0;
@@ -56,14 +108,52 @@ const mysteryFunction4 = function (string) {
   return eCount;
 };
 
+//What it does:
+/* 
+
+
+What it actually does: 
+*/
+
+// Runtime: 
+/* 
+My answer: 
+
+The actual answer: 
+*/
+
 const mysteryFunction5 = function (array) {
   array.sort();
 };
+
+//What it does:
+/* What I think it does: 
+
+What it actually does: 
+*/
+// Runtime: Returns
+/* 
+My answer: 
+
+The actual answer: 
+*/
 
 const mysteryFunction6 = function (dict, key) {
   const value = dict[key];
   return value;
 };
+
+//What it does:
+/* What I think it does: 
+
+What it actually does: 
+*/
+// Runtime: Returns
+/*
+My answer: 
+
+The actual answer:  
+*/
 
 const mysteryFunction7 = function (array) {
   // Assume `array` is an array of ints sorted from smallest to biggest
@@ -84,6 +174,18 @@ const mysteryFunction7 = function (array) {
   return false;
 };
 
+//What it does:
+/* What I think it does: 
+
+What it actually does: 
+*/
+// Runtime: Returns
+/* 
+My answer: 
+
+The actual answer: 
+*/
+
 const mysteryFunction8 = function (dictionary) {
   for (let key in dictionary) {
     let value = dictionary[key];
@@ -93,3 +195,17 @@ const mysteryFunction8 = function (dictionary) {
     return false;
   }
 };
+
+//What it does:
+/* What I think it does: 
+
+What it actually does: 
+*/
+// Runtime: Returns
+/* 
+My answer: 
+
+The actual answer: 
+*/
+
+// When the input size doubles, what happens to the time it takes to run?

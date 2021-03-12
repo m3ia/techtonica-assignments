@@ -10,3 +10,10 @@ package-lock.json
 *.csv
 passwords.txt
 no-dont-*
+*curriculum*
+*review-4---js-fundamentals-challenges-m3ia*
+*techtonica-projects/oop-mini/dist*
+*mailing-list*
+*runtime-complexity.js*
+*collab-practice*
+*jasmine-practice*

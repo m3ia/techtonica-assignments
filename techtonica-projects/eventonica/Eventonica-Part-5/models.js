@@ -48,10 +48,12 @@ class Event {
 class User {
   static all = [
     { name: 'meia',
-      id: 200
+      id: 200,
+      favorites: []
     }, 
     { name: 'danielle', 
-      id: 201
+      id: 201,
+      favorites: []
     }
   ];
   static _nextId = 200;
@@ -141,12 +143,14 @@ class Eventonica {
   }
 }
 
+let sky = new User('sky');
 
 if (typeof module !== "undefined") {
   module.exports = {
     Eventonica,
     User,
-    Event
+    Event, 
+    sky
   };
 }
 

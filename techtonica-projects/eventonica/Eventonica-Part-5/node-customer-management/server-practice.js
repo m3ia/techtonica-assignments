@@ -20,7 +20,7 @@ app.route('/customers').get((req, res) => {
      * For a more robust API, you should implement a check here
      */
 
-    let newCustomer = req.body; // req.body seems to take in the input? 
+    let newCustomer = req.body; // req.body is an undefined object
     customers.push(newCustomer);
 
     /*
@@ -38,41 +38,41 @@ app.route('/customers/:id').get((req, res) => {
   let status = 400;
   let response = "Unable to fetch data!";
   customers.forEach((customer) => {
-    if (customer['id'] == customer_id) {
-      res.status(200).send(customer);
-    }
-  })
-
-// http://localhost:3000/customers/1 put-example
-.put((req, res) => {
-  let customer_id = req.params.id;
-  let status = 400;
-  let response = "Unable to fetch data!";
-      let propertiesToChange = req.body;
-  let updatedCustomer = {};
-  customers.forEach((customer) => {
-            updatedCustomer = {
-        ...customer,
-        ...propertiesToChange
+      if (customer['id'] == customer_id) {
+        res.status(200).send(customer);
       }
-    }
-  })
-  status = 200;
-  response = updatedCustomer;
-  res.status(status).send(response);
-})
+    })
 
-// http://localhost:3000/customers/1 delete-example
-.delete((req, res) => {
-  let customer_id = req.params.id;
-  let status = 400;
-  let response = "Unable to fetch data!";
-  let newCustomers = customers.filter((customer) => {
-            return customer;
-  })
-  status = 200;
-  response = newCustomers;
-  res.status(status).send(response);
+    // http://localhost:3000/customers/1 put-example
+    .put((req, res) => {
+      let customer_id = req.params.id;
+      let status = 400;
+      let response = "Unable to fetch data!";
+      let propertiesToChange = req.body;
+      let updatedCustomer = {};
+      customers.forEach((customer) => {
+        updatedCustomer = {
+          ...customer,
+          ...propertiesToChange
+        }
+      })
+      status = 200;
+      response = updatedCustomer;
+      res.status(status).send(response);
+    })
+
+    // http://localhost:3000/customers/1 delete-example
+    .delete((req, res) => {
+      let customer_id = req.params.id;
+      let status = 400;
+      let response = "Unable to fetch data!";
+      let newCustomers = customers.filter((customer) => {
+        return customer;
+      })
+      status = 200;
+      response = newCustomers;
+      res.status(status).send(response);
+    })
 });
 
 /* ------- invoices ------- http://localhost:3000/invoices */
@@ -90,25 +90,25 @@ app.route('/invoices').get((req, res) => {
 
 /* http://localhost:3000/invoices/6 */
 app.route('/invoices/:id').get((req, res) => {
-  let invoice_id = req.params.id;
-  let status = 400;
-  let response = 'Unable to fetch data!';
-  invoices.forEach((invoice) => {
-    if (invoice['id'] == invoice_id) {
-      res.status(200).send(invoice);
-    }
-  });
-  res.status(status).send(response);
-})
+    let invoice_id = req.params.id;
+    let status = 400;
+    let response = 'Unable to fetch data!';
+    invoices.forEach((invoice) => {
+      if (invoice['id'] == invoice_id) {
+        res.status(200).send(invoice);
+      }
+    });
+    res.status(status).send(response);
+  })
 
   // http://localhost:3000/invoices/6: put-example
   .put((req, res) => {
     let invoice_id = req.params.id;
     let status = 400;
     let response = "Unable to fetch data!";
-        let newInvoice = {}
+    let newInvoice = {}
     invoices.forEach((invoice) => {
-              newInvoice = req.body;
+      newInvoice = req.body;
     })
     status = 200;
     response = newInvoice;
