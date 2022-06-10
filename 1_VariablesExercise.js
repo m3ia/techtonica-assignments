@@ -43,21 +43,18 @@ var num2 = 7;
 num1 = 4;
 num2 = 6;
 var theSum = num1 + num2;
-console.log(theSum);
 
 // Exercise 8. Now we will try some multiplication.
 // Make a new variable called 'theProduct', multiply num1 and num2 and assign
 // the resulting value to 'theProduct'.
 var theProduct = num1 * num2;
-console.log(theProduct);
 
 // Exercise 9.
 // Make a new variable called 'statement' and using 'myName' and
 // 'dreamDestination' and the concatenation method of your choice, make the
 // value of statement to be:
 // "Hi, my name is <your name>, and I can't wait to visit <your destination>!"
-var statement = "Hi, my name is " + myName + " , and I can't wait to visit " + dreamDestination + "!";
-console.log(statement);
+var statement = "Hi, my name is " + myName + ", and I can't wait to visit " + dreamDestination + "!";
 
 // *NOTE* For the following exercises, put your answers in the line below
 // the description of each exercise. For example, below a prompt, you may see:
@@ -87,41 +84,39 @@ const C = 4;
 const D = "D";
 
 // What is the value of B + C
-const myAnswerForExercise13 = "";
+const myAnswerForExercise13 = "5";
 
 // Exercise 14 What is the value of
 // A + "n" + D
-const myAnswerForExercise14 = "";
+const myAnswerForExercise14 = "RnD";
 
 // Exercise 15 What is the value of
 // A + B * 2 + D + C / 2:
-const myAnswerForExercise15 = "";
+const myAnswerForExercise15 = "R2D2";
 
 // Exercise 16 What is the value of A * B
-const myAnswerForExercise16 = "";
+const myAnswerForExercise16 = "NaN";
 
 // Exercise 17 What is the value of true || false
-const myAnswerForExercise17 = "";
+const myAnswerForExercise17 = "true";
 
 // Exercise 18 What is the value of 1 === "1"
-const myAnswerForExercise18 = "";
+const myAnswerForExercise18 = "false";
 
 // Exercise 19 What is the value of 1 == "1"
-const myAnswerForExercise19 = "";
+const myAnswerForExercise19 = "true";
 
 // Exercise 20 What is the value of 1 < 1
-const myAnswerForExercise20 = "";
+const myAnswerForExercise20 = "false";
 
 // Exercise 21 What is the value of 1 < 2 < 3
-const myAnswerForExercise21 = "";
-
+const myAnswerForExercise21 = "true";
 // Exercise 22 What is the value of 2 < 1 < 3
-const myAnswerForExercise22 = "";
-
+const myAnswerForExercise22 = "true";
 // Congrats, you made it to the end!
 // Did you find this easy or hard? If you used references, which ones helped you?
 // Please answer in a comment below.
-//
+// For Exercise 22, I could not understand why this 2 < 1 < 3. This referenced helped me understand that 1's and 0's can be converted to booleans: https://stackoverflow.com/questions/51648057/why-does-3-2-1-return-false-while-1-2-3-returns-true
 
 // Email your file to the course staff,
 // or commit your file to GitHub and email us a link.
