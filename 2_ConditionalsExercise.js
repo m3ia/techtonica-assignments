@@ -105,9 +105,9 @@ function exercise3(num3) {
   // --------------------------------------------
   // Write your code for the exercise below here:
   // --------------------------------------------
-  if (num3 % 2 ===0) {
+  if (num3 > 0) {
     answer3 = num3 + " is positive";
-  } else if (num3 % 2 === 1) {
+  } else if (num3 < 0) {
     answer3 = num3 + " is negative";
   } else {
     answer3 = num3 + " is zero";
@@ -288,18 +288,14 @@ function exercise10(num10) {
   // --------------------------------------------
   // Write your code for the exercise below here:
   // --------------------------------------------
-  switch (num10) {
-    case (num10 % 15 ===0):
-      answer10 = "Fizz Buzz";
-      break;
-    case (num10 % 3 === 0): 
-      answer10 = "Fizz";
-      break;
-    case (num10 % 5 === 0):
-      answer10 = "Buzz";
-      break;
-    default:
-      answer10 = num10;
+  if (num10 % 15 === 0) {
+    answer10 = "Fizz Buzz";
+  } else if (num10 % 3 === 0) {
+    answer10 = "Fizz";
+  } else if (num10 % 5 === 0) {
+    answer10 = "Buzz";
+  } else {
+    answer10 = num10;
   }
   // --------------------------------------------
   // And above here
