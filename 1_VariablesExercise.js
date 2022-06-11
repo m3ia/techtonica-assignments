@@ -43,11 +43,13 @@ var num2 = 7;
 num1 = 4;
 num2 = 6;
 var theSum = num1 + num2;
+console.log("theSum should be 10: " + theSum);
 
 // Exercise 8. Now we will try some multiplication.
 // Make a new variable called 'theProduct', multiply num1 and num2 and assign
 // the resulting value to 'theProduct'.
 var theProduct = num1 * num2;
+console.log("theProduct should be 24: " + theProduct);
 
 // Exercise 9.
 // Make a new variable called 'statement' and using 'myName' and
@@ -55,6 +57,7 @@ var theProduct = num1 * num2;
 // value of statement to be:
 // "Hi, my name is <your name>, and I can't wait to visit <your destination>!"
 var statement = "Hi, my name is " + myName + ", and I can't wait to visit " + dreamDestination + "!";
+console.log("The following should read \"Hi, my name is Meia, and I can\'t wait to visit New Zealand!\"" + statement);
 
 // *NOTE* For the following exercises, put your answers in the line below
 // the description of each exercise. For example, below a prompt, you may see:
@@ -85,34 +88,44 @@ const D = "D";
 
 // What is the value of B + C
 const myAnswerForExercise13 = "5";
+console.log(myAnswerForExercise13 + " should be: " + (B + C));
 
 // Exercise 14 What is the value of
 // A + "n" + D
 const myAnswerForExercise14 = "RnD";
+console.log(myAnswerForExercise14 + " should be: " + (A + "n" + D));
 
 // Exercise 15 What is the value of
 // A + B * 2 + D + C / 2:
 const myAnswerForExercise15 = "R2D2";
+console.log(myAnswerForExercise15 + " should be: " + (A + B * 2 + D + C / 2));
 
 // Exercise 16 What is the value of A * B
 const myAnswerForExercise16 = "NaN";
+console.log(myAnswerForExercise16 + " should be: " + (A * B));
 
 // Exercise 17 What is the value of true || false
 const myAnswerForExercise17 = "true";
+console.log(myAnswerForExercise17 + " should be: " + (true || false));
 
 // Exercise 18 What is the value of 1 === "1"
 const myAnswerForExercise18 = "false";
+console.log(myAnswerForExercise18 + " should be: " + (1 === "1"));
 
 // Exercise 19 What is the value of 1 == "1"
 const myAnswerForExercise19 = "true";
+console.log(myAnswerForExercise19 + " should be: " + (1 == "1"));
 
 // Exercise 20 What is the value of 1 < 1
 const myAnswerForExercise20 = "false";
+console.log(myAnswerForExercise20 + " should be: " + (1 < 1));
 
 // Exercise 21 What is the value of 1 < 2 < 3
 const myAnswerForExercise21 = "true";
+console.log(myAnswerForExercise21 + " should be: " + (1 < 2 < 3));
 // Exercise 22 What is the value of 2 < 1 < 3
 const myAnswerForExercise22 = "true";
+console.log(myAnswerForExercise22 + " should be: " + (2 < 1 < 3));
 // Congrats, you made it to the end!
 // Did you find this easy or hard? If you used references, which ones helped you?
 // Please answer in a comment below.

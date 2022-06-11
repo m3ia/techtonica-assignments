@@ -65,6 +65,10 @@ function exercise1(num1) {
   return answer1;
 }
 
+console.log(exercise1(-1)); // -1 is small;
+console.log(exercise1(100)); // The value of num1 is 100 and is greater than 10".
+console.log(exercise1(10)); // 10 is small
+
 // EXERCISE 2.
 // Write an if/else conditional statement that if given a number will assign
 // a string value of:
@@ -83,13 +87,16 @@ function exercise2(num2) {
   if  (num2 % 2 === 0) {
     answer2 =  num2 + " is even";
   } else {
-    answer2 = num2 + "is odd";
+    answer2 = num2 + " is odd";
   }
   // --------------------------------------------
   // And above here
   // --------------------------------------------
   return answer2;
 }
+console.log(exercise2(2)); // 2 is even
+console.log(exercise2(100)); // 100 is even
+console.log(exercise2(7)); // 7 is odd
 
 // EXERCISE 3.
 // Write an if/else if/else block such that if `num3` is positive, then
@@ -118,6 +125,10 @@ function exercise3(num3) {
   return answer3;
 }
 
+console.log(exercise3(10)); // 10 is positive
+console.log(exercise3(-1)); // -1 is negative
+console.log(exercise3(0)); // 0 is zero
+
 // EXERCISE 4.
 // Write an if/else statement such that if `varA` and `varB` are strings or
 // numbers and they have equal values, then change the value of answer4 to
@@ -142,6 +153,10 @@ function exercise4(varA, varB) {
   // --------------------------------------------
   return answer4;
 }
+
+console.log(exercise4(2, 2)); // 2 and 2 are equal
+console.log(exercise4(2, "2")); // 2 and 2 differ
+console.log(exercise4(NaN, NaN)); // NaN and NaN differ
 
 // EXERCISE 5.
 // In exercise 4, what are some of the unexpected cases where `varA` and `varB`
@@ -172,6 +187,10 @@ function exercise6(varA, varB, varC) {
   // --------------------------------------------
   return answer6;
 }
+
+console.log(exercise6(1, 1, 2)); // true
+console.log(exercise6(1, "1", 1)); // false
+console.log(exercise6(2, 2, 2)); // false
 
 // EXERCISE 7.
 // Use a switch conditional statement with case clauses such that if `num7` is
@@ -213,6 +232,15 @@ function exercise7(num7) {
   return answer7;
 }
 
+console.log(exercise7(1)); // You won!
+console.log(exercise7(7)); // You are lucky!
+console.log(exercise7(101)); // Welcome to coding 101!
+console.log(exercise7(1000000)); // You are one in a million!
+console.log(exercise7(NaN)); // Thanks for that!
+console.log(exercise7("yay")); // Thanks for that!
+console.log(exercise7(0)); // Thanks for that!
+
+
 // EXERCISE 8.
 // Using any conditional assign the value of true to answer8 if:
 // the values of amount1 and amount2 are between the values of
@@ -233,6 +261,10 @@ function exercise8(amount1, amount2, minimum, maximum) {
   // --------------------------------------------
   return answer8;
 }
+
+console.log(exercise8(2, 3, 1, 10)); // true
+console.log(exercise8(-1, 0, 0, 10)); // false
+console.log(exercise8(true, 2, 0, 10)); // true
 
 // EXERCISE 9.
 // In this exercise, if `item` is a number, follow the rules given in Exercise 7
@@ -273,6 +305,10 @@ function exercise9(item) {
   return answer9;
 }
 
+console.log(exercise9(7)); // You are lucky!
+console.log(exercise9(0)); // Thanks for that!
+console.log(exercise9(true)); // Please send a number, that was a boolean."
+
 // EXERCISE 10.
 // This question is a modified version of a classic programming question
 // called "Fizz Buzz"
@@ -302,6 +338,11 @@ function exercise10(num10) {
   // --------------------------------------------
   return answer10;
 }
+
+console.log(exercise10(30)); // Fizz Buzz
+console.log(exercise10(12)); // Fizz
+console.log(exercise10(10)); // Buzz
+console.log(exercise10(2)); // 2
 
 // Congrats, you made it to the end! You rock!
 // Did you find this easy or hard? If you used references, which ones helped you?
