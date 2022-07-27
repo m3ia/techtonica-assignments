@@ -105,4 +105,4 @@ let menu = {
   };
 
 multiplyNumeric(menu);
-console.log(menu); // { width: 400, height: 600, title: 'My menu' }
+console.log(menu); // { width: 400, height: 600, title: 'My menu' };
