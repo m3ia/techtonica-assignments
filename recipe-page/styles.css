@@ -3,9 +3,14 @@ p {
 }
 
 body {
-    background-color: #FFC374;
+    background-color: #e58a23;
+    font-family: 'Quicksand', sans-serif;    
 }
 
 h1, h2 {
     color: white;
+}
+
+h1 {
+    font-size: 40px;
 }
