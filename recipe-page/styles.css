@@ -12,5 +12,27 @@ h1, h2 {
 }
 
 h1 {
-    font-size: 40px;
+    /* font-size: 40px; */
+}
+
+img {
+    max-width: 600px;
+}
+
+.description{
+    max-width: 600px;
+}
+
+.top {
+    float: center;
+    max-width: 600px;
+}
+.left {
+    float: left;
+    max-width: 600px;
+}
+.right {
+    float: right;
+    max-width: 600px;
+    margin-left: 30px;
 }

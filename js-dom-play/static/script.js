@@ -60,3 +60,11 @@ img2.width=600;
 img2.classList.add('hero-image');
 img2.alt="sweet potato fries";
 div2.appendChild(img2);
+
+const friesP = document.createElement('p');
+friesP.innerHTML = `These are my favorite fries.`;
+div2.appendChild(friesP);
+
+const fryButton = document.createElement('button');
+fryButton.innerHTML = `Fry Me`;
+friesP.appendChild(fryButton);
