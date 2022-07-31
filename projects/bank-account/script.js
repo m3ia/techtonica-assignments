@@ -228,7 +228,9 @@ transferSubmit.addEventListener('click', function () {
   transferRec = transferRecipient;
   const transferAcct = accounts.filter(e => e.name === transferRec)[0];
   transferAmt = document.querySelector('input[name="transferAmt"]').value;
-  if (!validateInput(transferAmt)) {
+  if (!Boolean(transferRec)) {
+    userUpdate.innerHTML = `Please choose a recipient.`
+  } else if (!validateInput(transferAmt)) {
     return false;
   } else {
     if (transferAmt < 0) {
