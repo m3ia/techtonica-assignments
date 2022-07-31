@@ -4,7 +4,7 @@ class Account {
   constructor(name, balance) {
     this.name = name;
     this.balance = balance;
-    accounts.push(name);
+    accounts.push(this);
   }
   deposit = function(amt, acct) {
     if (acct) {
@@ -110,7 +110,11 @@ function createRadioButton(value) {
 
 // Creates radio buttons for all recipients
 for (let i of accounts) {
-  createRadioButton(i);
+  if (i.name === 'Billy')
+  {
+    continue;
+  }
+  createRadioButton(i.name);
 }
 
 // Div for transfer amount:
@@ -143,8 +147,15 @@ transferInputDiv.appendChild(verifyRecP);
 transferSubmit.addEventListener('click', function () {
   let transferRecipient = document.querySelector('input[name="transferRec"]:checked') ? document.querySelector('input[name="transferRec"]:checked').value : null;
   transferRec = transferRecipient;
+  const transferAcct = accounts.filter(e => e.name === transferRec)[0];
   transferAmt = document.querySelector('input[name="transferAmt"]').value;
+  billy.transfer(transferAcct, transferAmt);
+  p1h2.innerHTML = `Currently, your balance is: $${billy.balance}.`;
 
-  verifyRecP.innerHTML = `You have sent $${transferAmt} to ${transferRec}.`;
+  console.log(`
+    For admin: Billy now has ${billy.balance}.
+    ${transferRec} now has ${transferAcct.balance}.
+  `)
+  verifyRecP.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
 });
 
