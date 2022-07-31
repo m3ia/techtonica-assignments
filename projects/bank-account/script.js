@@ -85,8 +85,8 @@ description.appendChild(userUpdate);
 
 // Function to update description
 function updateBalanceDescription() {
-  div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
   if (billy.balance === 0) {
+    div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
     let x = document.getElementById('balance-span');
     x.style.color = 'red';
     transferSection.style.visibility = 'hidden';
@@ -94,6 +94,7 @@ function updateBalanceDescription() {
     <p>If you'd like to make a transfer, please deposit more funds.</p>
     `
   }
+  div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
 } 
 
 // Deposit Section ---------------------------------
@@ -134,22 +135,24 @@ depositInputDiv.appendChild(depositSubmit);
 // Event Listener where the deposit magic happens
 depositSubmit.addEventListener('click', function () {
   depositAmt = Number(document.querySelector('input[id="depositAmt"]').value);
-
-  if (depositAmt < 0) {
-    userUpdate.innerHTML = `You cannot deposit a negative amount.`;
+  if (!validateInput(depositAmt)) {
+    return false;
   } else {
-    billy.deposit(depositAmt);
-    console.log(`
-      For admin: Billy now has ${billy.balance}.
-    `)
-    userUpdate.innerHTML = `You have deposited $${depositAmt}`;
-    updateBalanceDescription(); 
-    let x = document.getElementById('balance-span');
-    x.style.color = 'green';
-    if (transferSection.style.visibility==='hidden') {
-      transferSection.style.visibility = 'visible';
+    if (depositAmt < 0) {
+      userUpdate.innerHTML = `You cannot deposit a negative amount.`;
+    } else {
+      billy.deposit(depositAmt);
+      console.log(`
+        For admin: Billy now has ${billy.balance}.
+      `)
+      userUpdate.innerHTML = `You have deposited $${depositAmt}`;
+      updateBalanceDescription(); 
+      let x = document.getElementById('balance-span');
+      x.style.color = 'green';
+      if (transferSection.style.visibility==='hidden') {
+        transferSection.style.visibility = 'visible';
+      }
     }
-
   }
   document.getElementById("depositForm").reset();
 });
@@ -225,21 +228,33 @@ transferSubmit.addEventListener('click', function () {
   transferRec = transferRecipient;
   const transferAcct = accounts.filter(e => e.name === transferRec)[0];
   transferAmt = document.querySelector('input[name="transferAmt"]').value;
-  if (transferAmt < 0) {
-    userUpdate.innerHTML = `You cannot transfer a negative amount.`;
-  } else if (billy.balance < transferAmt) {
-    userUpdate.innerHTML = `Unfortunately, you do not have enough to transfer this amount.`;
+  if (!validateInput(transferAmt)) {
+    return false;
   } else {
-    billy.transfer(transferAcct, transferAmt);
-    updateBalanceDescription(); 
-    console.log(`
-      For admin: Billy now has ${billy.balance}.
-      ${transferRec} now has ${transferAcct.balance}.
-    `)
-    userUpdate.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
+    if (transferAmt < 0) {
+      userUpdate.innerHTML = `You cannot transfer a negative amount.`;
+    } else if (billy.balance < transferAmt) {
+      userUpdate.innerHTML = `Unfortunately, you do not have enough to transfer this amount.`;
+    } else {
+      billy.transfer(transferAcct, transferAmt);
+      updateBalanceDescription(); 
+      console.log(`
+        For admin: Billy now has ${billy.balance}.
+        ${transferRec} now has ${transferAcct.balance}.
+      `)
+      userUpdate.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
+    }  
   }
-
+  
   document.getElementById("transferForm").reset();
 
 });
 
+// Function to check if item is empty
+function validateInput(amt) {
+  if (!Boolean(amt)) {
+    userUpdate.innerHTML = `Please enter a valid amount.`
+    return false;
+  }
+  return true;
+}
