@@ -100,6 +100,7 @@ depositSection.appendChild(depositHeading);
 
 // Creates a Deposit Form
 const depositForm = document.createElement('form');
+depositForm.setAttribute('id', 'depositForm');
 depositSection.appendChild(depositForm);
 
 // Div for deposit amount:
@@ -131,7 +132,6 @@ depositInputDiv.appendChild(verifyDepP);
 // Event Listener where the deposit magic happens
 depositSubmit.addEventListener('click', function () {
   depositAmt = Number(document.querySelector('input[id="depositAmt"]').value);
-  console.log('should be here', depositAmt);
 
   if (depositAmt < 0) {
     verifyRecP.innerHTML = `You cannot deposit a negative amount.`;
@@ -149,6 +149,7 @@ depositSubmit.addEventListener('click', function () {
       transferSection.style.visibility = 'visible';
     }
   }
+  document.getElementById("depositForm").reset();
 });
 
 
@@ -162,11 +163,12 @@ transferSection.appendChild(transferHeading);
 
 // Creates a Transfer Form and adds it to Transfer Section
 const transferForm = document.createElement('form');
+transferForm.setAttribute('id', 'transferForm');
 transferSection.appendChild(transferForm);
 
 // Div for the radio buttons
 const transferButtonsDiv = document.createElement('div');
-transferSection.appendChild(transferButtonsDiv);
+transferForm.appendChild(transferButtonsDiv);
 // Function that creates a radio button for each possible recipient
 function createRadioButton(value) {
   const radioBtn = document.createElement('input');
@@ -194,7 +196,7 @@ for (let i of accounts) {
 
 // Div for transfer amount:
 const transferInputDiv = document.createElement('div');
-transferSection.appendChild(transferInputDiv);
+transferForm.appendChild(transferInputDiv);
 // Input for transfer amount
 let transferInputLabel = document.createElement('label');
 transferInputLabel.setAttribute('for', 'transferAmt');
@@ -238,5 +240,8 @@ transferSubmit.addEventListener('click', function () {
     `)
     verifyRecP.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
   }
+
+  document.getElementById("transferForm").reset();
+
 });
 
