@@ -144,18 +144,26 @@ let transferAmt;
 transferInputDiv.appendChild(transferSubmit);
 transferInputDiv.appendChild(verifyRecP);
 
+// Event Listener where the transfer magic happens
 transferSubmit.addEventListener('click', function () {
   let transferRecipient = document.querySelector('input[name="transferRec"]:checked') ? document.querySelector('input[name="transferRec"]:checked').value : null;
   transferRec = transferRecipient;
   const transferAcct = accounts.filter(e => e.name === transferRec)[0];
   transferAmt = document.querySelector('input[name="transferAmt"]').value;
-  billy.transfer(transferAcct, transferAmt);
-  p1h2.innerHTML = `Currently, your balance is: $${billy.balance}.`;
+  if (transferAmt < 0) {
+    verifyRecP.innerHTML = `You cannot transfer a negative amount.`;
+  } else if (billy.balance < transferAmt) {
+    verifyRecP.innerHTML = `Unfortunately, you do not have enough to transfer this amount.`;
+  } else {
+    billy.transfer(transferAcct, transferAmt);
+    p1h2.innerHTML = `Currently, your balance is: $${billy.balance}.`;
 
-  console.log(`
-    For admin: Billy now has ${billy.balance}.
-    ${transferRec} now has ${transferAcct.balance}.
-  `)
-  verifyRecP.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
+    console.log(`
+      For admin: Billy now has ${billy.balance}.
+      ${transferRec} now has ${transferAcct.balance}.
+    `)
+    verifyRecP.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
+  }
+
 });
 
