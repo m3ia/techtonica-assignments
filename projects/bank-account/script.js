@@ -87,7 +87,7 @@ function updateBalanceDescription() {
     div1.innerHTML += `
     <p>If you'd like to make a transfer, please deposit more funds.</p>
     `
-  } 
+  }
 } 
 
 // Deposit Section ---------------------------------
@@ -101,6 +101,56 @@ depositSection.appendChild(depositHeading);
 // Creates a Deposit Form
 const depositForm = document.createElement('form');
 depositSection.appendChild(depositForm);
+
+// Div for deposit amount:
+const depositInputDiv = document.createElement('div');
+depositSection.appendChild(depositInputDiv);
+// Input for transfer amount
+let depositInputLabel = document.createElement('label');
+depositInputLabel.setAttribute('for', 'depositAmt');
+depositInputLabel.innerHTML = `Please enter an amount to deposit (in US dollars):`;
+depositForm.appendChild(depositInputLabel);
+depositForm.appendChild(br);
+let depositAmtInput = document.createElement('input');
+depositAmtInput.setAttribute('type', 'number');
+depositAmtInput.setAttribute('id', 'depositAmt');
+depositForm.appendChild(depositAmtInput);
+// Deposit submit button
+let depositSubmit = document.createElement('button');
+depositSubmit.setAttribute('type', 'button');
+depositSubmit.setAttribute('id', 'depositButton');
+depositForm.appendChild(depositSubmit);
+depositSubmit.innerHTML = 'Submit';
+
+// When user fills out form and submits, verifyDepP appears to verify what was sent:
+let verifyDepP = document.createElement('p');
+let depositAmt = 0;
+depositInputDiv.appendChild(depositSubmit);
+depositInputDiv.appendChild(verifyDepP);
+
+// Event Listener where the deposit magic happens
+depositSubmit.addEventListener('click', function () {
+  depositAmt = Number(document.querySelector('input[id="depositAmt"]').value);
+  console.log('should be here', depositAmt);
+
+  if (depositAmt < 0) {
+    verifyRecP.innerHTML = `You cannot deposit a negative amount.`;
+  } else {
+    billy.deposit(depositAmt);
+    updateBalanceDescription(); 
+    console.log(`
+      For admin: Billy now has ${billy.balance}.
+    `)
+    verifyDepP.innerHTML = `You have deposited $${depositAmt}`;
+    div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
+    let x = document.getElementById('balance-span');
+    x.style.color = 'green';
+    if (transferSection.style.visibility==='hidden'){
+      transferSection.style.visibility = 'visible';
+    }
+  }
+});
+
 
 // Transfer Section ---------------------------------
 const transferSection = document.createElement('div');
