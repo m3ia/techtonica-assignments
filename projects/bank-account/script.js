@@ -77,6 +77,12 @@ description.appendChild(div1);
 div1.appendChild(div1h2);
 div1.appendChild(p);
 updateBalanceDescription();
+let userUpdate = document.createElement('p');
+userUpdate.setAttribute('id', 'userUpdate');
+userUpdate.style.color = 'blue';
+
+description.appendChild(userUpdate);
+
 // Function to update description
 function updateBalanceDescription() {
   div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
@@ -122,32 +128,28 @@ depositSubmit.setAttribute('type', 'button');
 depositSubmit.setAttribute('id', 'depositButton');
 depositForm.appendChild(depositSubmit);
 depositSubmit.innerHTML = 'Submit';
-
-// When user fills out form and submits, verifyDepP appears to verify what was sent:
-let verifyDepP = document.createElement('p');
 let depositAmt = 0;
 depositInputDiv.appendChild(depositSubmit);
-depositInputDiv.appendChild(verifyDepP);
 
 // Event Listener where the deposit magic happens
 depositSubmit.addEventListener('click', function () {
   depositAmt = Number(document.querySelector('input[id="depositAmt"]').value);
 
   if (depositAmt < 0) {
-    verifyRecP.innerHTML = `You cannot deposit a negative amount.`;
+    userUpdate.innerHTML = `You cannot deposit a negative amount.`;
   } else {
     billy.deposit(depositAmt);
-    updateBalanceDescription(); 
     console.log(`
       For admin: Billy now has ${billy.balance}.
     `)
-    verifyDepP.innerHTML = `You have deposited $${depositAmt}`;
-    div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
+    userUpdate.innerHTML = `You have deposited $${depositAmt}`;
+    updateBalanceDescription(); 
     let x = document.getElementById('balance-span');
     x.style.color = 'green';
-    if (transferSection.style.visibility==='hidden'){
+    if (transferSection.style.visibility==='hidden') {
       transferSection.style.visibility = 'visible';
     }
+
   }
   document.getElementById("depositForm").reset();
 });
@@ -213,13 +215,9 @@ transferSubmit.setAttribute('type', 'button');
 transferSubmit.setAttribute('id', 'transferButton');
 transferInputDiv.appendChild(p);
 transferSubmit.innerHTML = 'Submit';
-
-// When user fills out form and submits, verifyRecP appears to verify what was sent:
-let verifyRecP = document.createElement('p');
 let transferRec;
 let transferAmt; 
 transferInputDiv.appendChild(transferSubmit);
-transferInputDiv.appendChild(verifyRecP);
 
 // Event Listener where the transfer magic happens
 transferSubmit.addEventListener('click', function () {
@@ -228,9 +226,9 @@ transferSubmit.addEventListener('click', function () {
   const transferAcct = accounts.filter(e => e.name === transferRec)[0];
   transferAmt = document.querySelector('input[name="transferAmt"]').value;
   if (transferAmt < 0) {
-    verifyRecP.innerHTML = `You cannot transfer a negative amount.`;
+    userUpdate.innerHTML = `You cannot transfer a negative amount.`;
   } else if (billy.balance < transferAmt) {
-    verifyRecP.innerHTML = `Unfortunately, you do not have enough to transfer this amount.`;
+    userUpdate.innerHTML = `Unfortunately, you do not have enough to transfer this amount.`;
   } else {
     billy.transfer(transferAcct, transferAmt);
     updateBalanceDescription(); 
@@ -238,7 +236,7 @@ transferSubmit.addEventListener('click', function () {
       For admin: Billy now has ${billy.balance}.
       ${transferRec} now has ${transferAcct.balance}.
     `)
-    verifyRecP.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
+    userUpdate.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
   }
 
   document.getElementById("transferForm").reset();
