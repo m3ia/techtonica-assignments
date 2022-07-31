@@ -76,7 +76,7 @@ const div1h2 = document.createElement('h2');
 description.appendChild(div1);
 div1.appendChild(div1h2);
 div1.appendChild(p);
-updateBalanceDescription();
+div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`
 let userUpdate = document.createElement('p');
 userUpdate.setAttribute('id', 'userUpdate');
 userUpdate.style.color = 'blue';
@@ -85,7 +85,9 @@ description.appendChild(userUpdate);
 
 // Function to update description
 function updateBalanceDescription() {
-  if (billy.balance === 0) {
+  if (billy.balance != 0) {
+    div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`
+  } else {
     div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
     let x = document.getElementById('balance-span');
     x.style.color = 'red';
@@ -94,7 +96,6 @@ function updateBalanceDescription() {
     <p>If you'd like to make a transfer, please deposit more funds.</p>
     `
   }
-  div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
 } 
 
 // Deposit Section ---------------------------------
@@ -146,14 +147,17 @@ depositSubmit.addEventListener('click', function () {
         For admin: Billy now has ${billy.balance}.
       `)
       userUpdate.innerHTML = `You have deposited $${depositAmt}`;
-      updateBalanceDescription(); 
       let x = document.getElementById('balance-span');
       x.style.color = 'green';
       if (transferSection.style.visibility==='hidden') {
         transferSection.style.visibility = 'visible';
       }
+      updateBalanceDescription(); 
+
     }
   }
+  updateBalanceDescription(); 
+
   document.getElementById("depositForm").reset();
 });
 
@@ -219,7 +223,7 @@ transferSubmit.setAttribute('id', 'transferButton');
 transferInputDiv.appendChild(p);
 transferSubmit.innerHTML = 'Submit';
 let transferRec;
-let transferAmt; 
+let transferAmt = 0; 
 transferInputDiv.appendChild(transferSubmit);
 
 // Event Listener where the transfer magic happens
@@ -227,7 +231,7 @@ transferSubmit.addEventListener('click', function () {
   let transferRecipient = document.querySelector('input[name="transferRec"]:checked') ? document.querySelector('input[name="transferRec"]:checked').value : null;
   transferRec = transferRecipient;
   const transferAcct = accounts.filter(e => e.name === transferRec)[0];
-  transferAmt = document.querySelector('input[name="transferAmt"]').value;
+  transferAmt = Number(document.querySelector('input[name="transferAmt"]').value);
   if (!Boolean(transferRec)) {
     userUpdate.innerHTML = `Please choose a recipient.`
   } else if (!validateInput(transferAmt)) {
@@ -237,7 +241,7 @@ transferSubmit.addEventListener('click', function () {
       userUpdate.innerHTML = `You cannot transfer a negative amount.`;
     } else if (billy.balance < transferAmt) {
       userUpdate.innerHTML = `Unfortunately, you do not have enough to transfer this amount.`;
-    } else {
+    } else if (billy.balance >= transferAmt) {
       billy.transfer(transferAcct, transferAmt);
       updateBalanceDescription(); 
       console.log(`
