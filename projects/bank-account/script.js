@@ -70,16 +70,41 @@ document.body.appendChild(header);
 const description = document.createElement('div');
 document.body.appendChild(description);
 
-// p1: Describes Billy's current balance
-const p1 = document.createElement('p');
-const p1h2 = document.createElement('h2');
-description.appendChild(p1);
-p1h2.innerHTML = `Currently, your balance is: $${billy.balance}.`;
-p1.appendChild(p1h2);
-p1.appendChild(p);
+// div1: Describes Billy's current balance
+const div1 = document.createElement('div');
+const div1h2 = document.createElement('h2');
+description.appendChild(div1);
+div1.appendChild(div1h2);
+div1.appendChild(p);
+updateBalanceDescription();
+// Function to update description
+function updateBalanceDescription() {
+  div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
+  if (billy.balance === 0) {
+    let x = document.getElementById('balance-span');
+    x.style.color = 'red';
+    transferSection.style.visibility = 'hidden';
+    div1.innerHTML += `
+    <p>If you'd like to make a transfer, please deposit more funds.</p>
+    `
+  } 
+} 
+
+// Deposit Section ---------------------------------
+const depositSection = document.createElement('div');
+depositSection.setAttribute('id', 'depositSection');
+document.body.appendChild(depositSection);
+const depositHeading = document.createElement('h3');
+depositHeading.innerHTML = `Make a Deposit`;
+depositSection.appendChild(depositHeading);
+
+// Creates a Deposit Form
+const depositForm = document.createElement('form');
+depositSection.appendChild(depositForm);
 
 // Transfer Section ---------------------------------
 const transferSection = document.createElement('div');
+transferSection.setAttribute('id', 'transferSection');
 document.body.appendChild(transferSection);
 const transferHeading = document.createElement('h3');
 transferHeading.innerHTML = `Make a Transfer`;
@@ -156,14 +181,12 @@ transferSubmit.addEventListener('click', function () {
     verifyRecP.innerHTML = `Unfortunately, you do not have enough to transfer this amount.`;
   } else {
     billy.transfer(transferAcct, transferAmt);
-    p1h2.innerHTML = `Currently, your balance is: $${billy.balance}.`;
-
+    updateBalanceDescription(); 
     console.log(`
       For admin: Billy now has ${billy.balance}.
       ${transferRec} now has ${transferAcct.balance}.
     `)
     verifyRecP.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
   }
-
 });
 
