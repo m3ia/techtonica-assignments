@@ -15,7 +15,7 @@ class Account {
     return this.balance;
   }
   describe = function() {
-    return this.name;
+    return `${this.name}'s current balance: ${this.balance}`;
   }
   transfer = function(recAcct, amt) {
     this.deposit(-Math.abs(amt));
@@ -58,17 +58,22 @@ console.log(
 // Page Elements ---------------------------------
 const br = document.createElement('br');
 const p = document.createElement('p');
+const wrappingDiv = document.createElement('div');
+wrappingDiv.setAttribute('id', 'wrapper');
+wrappingDiv.style.padding = '50px';
+wrappingDiv.style.border = '2px solid black';
+document.body.appendChild(wrappingDiv);
 
 // Header ---------------------------------
 const header = document.createElement('header');
 const greeting = document.createElement('h1');
-greeting.innerHTML = `Hello, ${billy.describe()}!`;
+greeting.innerHTML = `Hi ${billy.name}!`;
 header.appendChild(greeting);
-document.body.appendChild(header);
+wrappingDiv.appendChild(header);
 
 // Description ---------------------------------
 const description = document.createElement('div');
-document.body.appendChild(description);
+wrappingDiv.appendChild(description);
 
 // div1: Describes Billy's current balance
 const div1 = document.createElement('div');
@@ -101,7 +106,7 @@ function updateBalanceDescription() {
 // Deposit Section ---------------------------------
 const depositSection = document.createElement('div');
 depositSection.setAttribute('id', 'depositSection');
-document.body.appendChild(depositSection);
+wrappingDiv.appendChild(depositSection);
 const depositHeading = document.createElement('h3');
 depositHeading.innerHTML = `Make a Deposit`;
 depositSection.appendChild(depositHeading);
@@ -144,7 +149,7 @@ depositSubmit.addEventListener('click', function () {
     } else {
       billy.deposit(depositAmt);
       console.log(`
-        For admin: Billy now has ${billy.balance}.
+        For admin: ${billy.describe()}.
       `)
       userUpdate.innerHTML = `You have deposited $${depositAmt}`;
       let x = document.getElementById('balance-span');
@@ -165,7 +170,7 @@ depositSubmit.addEventListener('click', function () {
 // Transfer Section ---------------------------------
 const transferSection = document.createElement('div');
 transferSection.setAttribute('id', 'transferSection');
-document.body.appendChild(transferSection);
+wrappingDiv.appendChild(transferSection);
 const transferHeading = document.createElement('h3');
 transferHeading.innerHTML = `Make a Transfer`;
 transferSection.appendChild(transferHeading);
