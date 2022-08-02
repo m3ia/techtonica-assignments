@@ -31,14 +31,13 @@ let jack = new Account('Jack', 15);
 
 let jill = new Account('Jill', -5);
 
-console.log(`
-  Billy's current balance: ${billy.balance}
-  Rosie's current balance: ${rosie.balance}
-  Jack's current balance: ${jack.balance}
-  Jill's current balance: ${jill.balance}
-`);
+console.log(billy.describe());
+console.log(rosie.describe());
+console.log(jack.describe());
+console.log(jill.describe());
 
 billy.transfer(jack, 1);
+// billy ==> 4, jack ==> 16
 console.log(
   `
   Billy's new balance: ${billy.balance}
@@ -54,6 +53,11 @@ console.log(
   Jack's new balance: ${jack.balance}
   `
 );
+
+billy.transfer(rosie, -3);
+// billy ==> 1, rosie ==> 2
+console.log(billy.describe());
+console.log(rosie.describe());
 
 // Page Elements ---------------------------------
 const br = document.createElement('br');
@@ -78,6 +82,7 @@ wrappingDiv.appendChild(description);
 // div1: Describes Billy's current balance
 const div1 = document.createElement('div');
 const div1h2 = document.createElement('h2');
+div1h2.setAttribute('id', 'div1h2');
 description.appendChild(div1);
 div1.appendChild(div1h2);
 div1.appendChild(p);
@@ -90,10 +95,14 @@ description.appendChild(userUpdate);
 
 // Function to update description
 function updateBalanceDescription() {
-  if (billy.balance != 0) {
-    div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`
+  let y = document.getElementById("div1h2");
+
+  if (billy.balance > 0) {
+    y.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
+    let x = document.getElementById('balance-span');
+    x.style.color = 'green';
   } else {
-    div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
+    y.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
     let x = document.getElementById('balance-span');
     x.style.color = 'red';
     transferSection.style.visibility = 'hidden';
@@ -148,20 +157,19 @@ depositSubmit.addEventListener('click', function () {
       userUpdate.innerHTML = `You cannot deposit a negative amount.`;
     } else {
       billy.deposit(depositAmt);
+      updateBalanceDescription(); 
       console.log(`
         For admin: ${billy.describe()}.
       `)
       userUpdate.innerHTML = `You have deposited $${depositAmt}`;
-      let x = document.getElementById('balance-span');
-      x.style.color = 'green';
+      // let x = document.getElementById('balance-span');
+      // x.style.color = 'green';
       if (transferSection.style.visibility==='hidden') {
         transferSection.style.visibility = 'visible';
       }
-      updateBalanceDescription(); 
-
     }
   }
-  updateBalanceDescription(); 
+  // updateBalanceDescription(); 
 
   document.getElementById("depositForm").reset();
 });
