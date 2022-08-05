@@ -15,64 +15,125 @@ body {
     font-size: 20px;
     min-height: 100vh;
   }
-  
-  #hamburger-menu {
-      width: 50px;
-      height: 50px;
-      display: block;
-      border: none;
-      padding: 0px;
-      margin: 20px;
-      background: linear-gradient(
-        to bottom, 
-        #3D0E61, #3D0E61 20%, 
-        white 20%, white 40%, 
-        #3D0E61 40%, #3D0E61 60%, 
-        white 60%, white 80%, 
-        #3D0E61 80%, #3D0E61 100%
-      );
+
+/* Hamburger Menu Nav */
+
+#burgerLogo {
+    display: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
+    overflow: hidden;
+    background: black;
+    z-index: -1;
+    border: 2px solid black;
   }
   
-  /* #hamburger-menu #sidebar-menu {
-      display: hidden;
+  #hamburgerInput{
+    display: none;
+  }
+  
+  #hamburgerMenu #sidebarMenu {
+      visibility: hidden;
       position: fixed;
       top: 0;
       left: -250px;
       width: 200px;
       height: 100%;
       background-color: #3D0E61;
+      transition: 0.3s;
       padding: 0px 10px;
       box-sizing: border-box;
-  } */
+  }
+  
+  #hamburgerMenu h3 {
+    color: white;
+    font-size: 2.2rem;
+  }
+  
+  #hamburgerMenu ul {
+    padding-left: 0px;
+  }
+  
+  #hamburgerMenu li {
+    list-style-type: none;
+    line-height: 3rem;
+  }
+  
+  #hamburgerMenu a {
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+  }
+  
+  #hamburgerMenu a:hover {
+    text-decoration: underline;
+    color:  #F8A500;
+  }
+  
+  #hamburgerInput:checked + #hamburgerMenu #sidebarMenu {
+      display: inline;
+      visibility: visible;
+      left: 0;
+      /* position: -9999px; */
+  }
+
+  #hamburgerInput:checked ~ .overlay{
+    display: none; 
+    visibility: hidden;
+    opacity: 0.4;
+    /* position: -9999px; */
+  }
+  
 
 #mainMenu {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-items: space-evenly;
     justify-content: center;
 }
 
-#mainMenu li {
-    list-style-type: none;
-    padding: 5px;
-    margin: 10px;
-    align-self: flex-end;
+#logoImg {
+    align-self: center;
+    width: 50%;
+    max-width: 500px;
 }
 
-#mainMenu li a {
+
+/* Span of each nav btn in main menu */
+.navBtn {
+    list-style-type: none;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.navBar {
+    height:100%;
+}
+
+/* Div that holds just the nav btns in main menu */
+.navBtns {
+    display:flex;
+    justify-content: center;
+    align-items: space-evenly;
+}
+.navBtn a {
     font-weight: 400;
     text-decoration: none;
     color: white;
-    
 }
 
-#mainMenu li a:hover {
+.navBtn a:hover {
     color:  rgb(24, 0, 122);
     
-}
-
-#logo {
-    min-width: 500px;
 }
 
 body {
@@ -136,29 +197,6 @@ img {
     float: center;
     max-width: 600px;
 }
-/* .description {
-    float: left;
-    max-width: 599px;
-}
-.prepInstructions {
-    float: right;
-    max-width: 599px;
-    margin-left: 30px;
-} */
-
-/* .titleSection {
-    float: center;
-    max-width: 600px;
-}
-.description {
-    float: left;
-    max-width: 599px;
-}
-.prepInstructions {
-    float: right;
-    max-width: 599px;
-    margin-left: 30px;
-} */
 
 #prepInfo {
     min-width: 400px;
@@ -169,20 +207,75 @@ img {
     padding-top: 30px;
     padding-right: 10px;
     padding-left: 10px;
-    height: 70px;
-    width: 100px;
+    height: 110px;
+    width: 110px;
     overflow-wrap: break-word;
     margin: 2px;
     text-align: center;
 }
 
+/* Footer */
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#logoFooter {
+    padding: 100px;
+    margin: 100px;
+}
 /* Media Queries */
 /* For tablet size or smaller */
-@media(max-width: 458px) {
-    #logo {
-        min-width: 200px;
-        max-width: 100%
+@media(max-width: 700px) {
+    #logoImg {
+        /* align-self: flex-end; */
+        /* min-width: 50px; */
+        display: none;
     }
+
+    #burgerLogo {
+        display: inline-block;
+        align-self: right;
+        min-width: 20%;
+        max-width: 50%;
+    }
+
+    #logoFooter {
+        display: inline-block;
+        min-width: 20%;
+        max-width: 100%;
+    }
+
+    .overlay {
+        border: 2px solid black;
+    }
+
+    #hamburgerMenu {
+        border: 2px solid black;
+        width: 50px;
+        height: 50px;
+        border: none;
+        padding: 0px;
+        margin: 20px;
+        margin-top: 90px;
+        background: linear-gradient(
+          to bottom, 
+          #3D0E61, #3D0E61 20%, 
+          #F8A500 20%, #F8A500 40%, 
+          #3D0E61 40%, #3D0E61 60%, 
+          #F8A500 60%, #F8A500 80%, 
+          #3D0E61 80%, #3D0E61 100%
+        );
+        border-radius: 2px;
+        display: inline-block;
+    }
+
+    .navBtns {
+        display: none;
+    }
+
     img {
         width: 100%;
         /* border: 20px solid black; */
@@ -192,7 +285,7 @@ img {
     .description, .prepInstructions {
         /* float: center; */
         width: 100%;
-        min-width: 300px;
+        min-width: 100px;
     }
     /* .prepInstructions { */
         /* float: center; */
@@ -202,5 +295,7 @@ img {
     #prepInfo {
         min-width: 300px;
     }
+
+    
 } 
 

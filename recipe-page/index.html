@@ -15,31 +15,39 @@
 
 <body>
     <header>
-        <!-- Hamburger nav -->
-        <!-- <label id="hamburger-menu">
-            <nav id="sidebar-menu">
-              <h3>Menu</h3>
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Store</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </nav>
-          </label>
-          
-          <div class="overlay"></div> -->
-        <!-- Flat nav -->
-        <ul class="navBar" id="mainMenu">
-            <li><a href="#home">home</a></li>
-            <li><a href="#products">products</a></li>
-            <li><a href="#recipes">recipes</a></li>
-            <li><img src="./umami-mami-4.svg" alt="logo" id="logo"></img></li>
-            <li><a href="#where-to-buy">where to buy</a></li>
-            <li><a href="#faq">faq</a> </li>
-            <li><a href="#about">about</a></li>
-        </ul>
+        <!-- Main Menu nav -->
+        <div class="navBar" id="mainMenu">
+            
+            <!-- Hamburger nav -->
+            <div id="burgerBtn">
+                <input type="checkbox" id="hamburgerInput" class="hamburgerNav" />
+                <label id="hamburgerMenu" for="hamburgerInput">
+                <nav id="sidebarMenu">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li><a href="#home">home</a></li>
+                        <li><a href="#products">products</a></li>
+                        <li><a href="#recipes">recipes</a></li>
+                        <li><a href="#locations">locations</a></li>
+                        <li><a href="#faq">faq</a> </li>
+                        <li><a href="#about">about</a></li>
+                    </ul>
+                </nav>
+                </label>
+                <img src="./umami-mami-4.svg" alt="logo" id="burgerLogo"></img>
+            </div>            
+            <div class="overlay"></div>
+            <img src="./umami-mami-4.svg" alt="logo" id="logoImg"></img>
+        
+            <div class="navBtns">
+                <span class= "navBtn"><a href="#home">home</a></span>
+                <span class= "navBtn"><a href="#products">products</a></span>
+                <span class= "navBtn"><a href="#recipes">recipes</a></span>
+                <span class= "navBtn"><a href="#locations">locations</a></span>
+                <span class= "navBtn"><a href="#faq">faq</a></span>
+                <span class= "navBtn"><a href="#about">about</a></span>
+            </div>
+        </div>
     </header>
     <div class="container row">
         <div class="titleSection">
@@ -84,13 +92,15 @@
             <div class="recipesCards">
                 <h2>Similar Recipes:</h2>
                 <a href="https://www.erinliveswhole.com/crispy-baked-chili-lime-sweet-potato-fries/">Crispy Baked Chili Lime Sweet Potato Fries</a>
-                <br><a href="https://greateightfriends.com/air-fryer-chili-lime-sweet-potato-fries/">AIR FRYER CHILI LIME SWEET POTATO FRIES</a>
-                <br><a href="https://paleoglutenfree.com/recipes/extra-crispy-garlic-lime-sweet-potato-fries/">EXTRA CRISPY GARLIC LIME SWEET POTATO FRIES</a>
+                <br><a href="https://greateightfriends.com/air-fryer-chili-lime-sweet-potato-fries/">Air Fryer Chili Lime Sweet Potato Fries</a>
+                <br><a href="https://paleoglutenfree.com/recipes/extra-crispy-garlic-lime-sweet-potato-fries/">Extra Crispy Garlic Lime Sweet Potato Fries</a>
                 </p>
             </div>
         </div>
     </div>
-    <footer></footer>
+    <footer>
+        <img src="./umami-mami-4.svg" alt="logo" id="logoImg"></img>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
