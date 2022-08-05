@@ -163,7 +163,7 @@ depositSubmit.addEventListener('click', function () {
         For admin: ${billy.describe()}.
       `)
       userUpdate.innerHTML = `You have deposited $${depositAmt}`;
-      createSummaryLine(`Deposit: $${depositAmt}`)
+      createSummaryLine(`Deposit: $${depositAmt}`, 'green')
       // let x = document.getElementById('balance-span');
       // x.style.color = 'green';
       if (transferSection.style.visibility==='hidden') {
@@ -264,7 +264,7 @@ transferSubmit.addEventListener('click', function () {
         ${transferRec} now has ${transferAcct.balance}.
       `)
       userUpdate.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
-      createSummaryLine(`Transfer: $${transferAmt} to ${transferRec}`);
+      createSummaryLine(`Transfer: $${transferAmt} to ${transferRec}`, 'red');
     }  
   }
   
@@ -291,14 +291,19 @@ document.body.appendChild(summary);
 let summaryH3 = document.createElement('h3');
 summaryH3.innerHTML = `Summary:`;
 summary.appendChild(summaryH3);
+summary.style.visibility = 'hidden';
 
 // Summary Content
 let summaryList = document.createElement('ul');
 summary.appendChild(summaryList);
 
 
-function createSummaryLine(update) {
+function createSummaryLine(update, color) {
   let summaryLI = document.createElement('li');
   summaryLI.innerHTML = `<li>${update}</li>`;
   summaryList.appendChild(summaryLI);
+  summaryLI.style.color = color;
+  summaryLI.style.listStyle = 'none';
+  summary.style.visibility = 'visible';
+
 }
