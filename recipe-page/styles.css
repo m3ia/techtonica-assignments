@@ -10,8 +10,75 @@ header, footer {
 }
 
 body {
+    padding: 0px;
+    margin: 0px;
+    font-size: 20px;
+    min-height: 100vh;
+  }
+  
+  #hamburger-menu {
+      width: 50px;
+      height: 50px;
+      display: block;
+      border: none;
+      padding: 0px;
+      margin: 20px;
+      background: linear-gradient(
+        to bottom, 
+        #3D0E61, #3D0E61 20%, 
+        white 20%, white 40%, 
+        #3D0E61 40%, #3D0E61 60%, 
+        white 60%, white 80%, 
+        #3D0E61 80%, #3D0E61 100%
+      );
+  }
+  
+  /* #hamburger-menu #sidebar-menu {
+      display: hidden;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 200px;
+      height: 100%;
+      background-color: #3D0E61;
+      padding: 0px 10px;
+      box-sizing: border-box;
+  } */
+
+#mainMenu {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-evenly;
+    justify-content: center;
+}
+
+#mainMenu li {
+    list-style-type: none;
+    padding: 5px;
+    margin: 10px;
+    align-self: flex-end;
+}
+
+#mainMenu li a {
+    font-weight: 400;
+    text-decoration: none;
+    color: white;
+    
+}
+
+#mainMenu li a:hover {
+    color:  rgb(24, 0, 122);
+    
+}
+
+#logo {
+    min-width: 500px;
+}
+
+body {
     background-color: #fafafa;
-    font-family: 'Opan Sans', 'Arial', 'Helvetica'; 
+    font-family: 'Arvo', 'Arial', 'Helvetica'; 
+    font-weight: 300;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,25 +86,32 @@ body {
 }
 
 h1, h2 {
-    color: rgb(91, 161, 17);
-    line-height: 58px
+    /* color: rgb(91, 161, 17); */
+    color:rgb(24, 0, 122);
+    line-height: 57px;
+    font-family: 'Arvo';
+    font-weight: 400;
 }
 
-h3 {
-    color:#413b36;
-}
 
 h1 {
-    font-size: 60px;
+    font-size: 55px;
 }
 
 h2 {
     font-size: 35px;
 }
 
-p {
-    font-size: 16px;
-    line-height:19px;
+h3 {
+    /* color:#413b36; */
+    color:rgb(242, 105, 26);
+    font-size: 25px;
+    font-weight:400;
+}
+
+p, li, a {
+    font-size: 18px;
+    line-height:30px;
 }
 
 /* Intro: class for the div wrapping the intro and hero image within description */
@@ -53,6 +127,7 @@ img {
     /* width:32%; */
     max-width: 75%;
 }
+
 
 .container {
     max-width: 75%;
@@ -104,9 +179,13 @@ img {
 /* Media Queries */
 /* For tablet size or smaller */
 @media(max-width: 458px) {
+    #logo {
+        min-width: 200px;
+        max-width: 100%
+    }
     img {
         width: 100%;
-        border: 20px solid black;
+        /* border: 20px solid black; */
         padding: 10px;
         margin: 20px;
     }
