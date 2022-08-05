@@ -7,9 +7,10 @@ With this app, the user, "Billy", can make a "deposit" or "transfer" to another 
 ![gif of adding a deposit or transfer](./bank-basic-fxn.gif)
 
 Once the user makes a deposit or transfer, this app will add a summary section:
- ![a screenshot of the summary](./summary.png)
+![a screenshot of the summary](./summary.png)
 
 We also have basic validation:
+
 ![gif of validation](./validation.gif)
 
 ---
