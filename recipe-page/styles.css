@@ -4,7 +4,7 @@ p {
 
 body {
     background-color: #e58a23;
-    font-family: 'Quicksand', sans-serif;    
+    font-family: 'Opan Sans', 'Arial', 'Helvetica';    
 }
 
 h1, h2 {
@@ -12,11 +12,12 @@ h1, h2 {
 }
 
 h1 {
-    /* font-size: 40px; */
+    font-size: 40px;
 }
 
 img {
-    max-width: 600px;
+    /* width:32%; */
+    max-width: 500px;
 }
 
 .description{
@@ -36,3 +37,26 @@ img {
     max-width: 600px;
     margin-left: 30px;
 }
+
+.prepItem {
+    border: 2px dashed black;
+    display: inline-block;
+    padding-top: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    height: 70px;
+    width: 100px;
+    overflow-wrap: break-word;
+    margin: 2px;
+    text-align: center;
+}
+
+/* Media Queries */
+/* For tablet size or smaller */
+@media(max-width: 481px) {
+    img {
+        width: 500px;
+        border: 20px solid black;
+    }
+} 
+
