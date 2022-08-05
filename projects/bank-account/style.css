@@ -6,6 +6,14 @@
     color: white;
 }
 
-#wrapper {
+#wrapper, #summaryDiv {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#summaryDiv {
+    border: 2px solid black;
+    /* height: 100px; */
+    padding: 50px;
+    border: 2px solid black;
+    border-Radius: 10px;
 }

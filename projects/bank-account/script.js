@@ -66,6 +66,7 @@ const wrappingDiv = document.createElement('div');
 wrappingDiv.setAttribute('id', 'wrapper');
 wrappingDiv.style.padding = '50px';
 wrappingDiv.style.border = '2px solid black';
+wrappingDiv.style.borderRadius = '10px';
 document.body.appendChild(wrappingDiv);
 
 // Header ---------------------------------
@@ -162,6 +163,7 @@ depositSubmit.addEventListener('click', function () {
         For admin: ${billy.describe()}.
       `)
       userUpdate.innerHTML = `You have deposited $${depositAmt}`;
+      createSummaryLine(`Deposit: $${depositAmt}`)
       // let x = document.getElementById('balance-span');
       // x.style.color = 'green';
       if (transferSection.style.visibility==='hidden') {
@@ -262,6 +264,7 @@ transferSubmit.addEventListener('click', function () {
         ${transferRec} now has ${transferAcct.balance}.
       `)
       userUpdate.innerHTML = `You have sent $${transferAmt} to ${transferAcct.name}.`;
+      createSummaryLine(`Transfer: $${transferAmt} to ${transferRec}`);
     }  
   }
   
@@ -276,4 +279,26 @@ function validateInput(amt) {
     return false;
   }
   return true;
+}
+
+// create a div for the summary
+// append updates to summary
+let summary = document.createElement('div');
+summary.setAttribute('id', 'summaryDiv');
+document.body.appendChild(summary);
+
+// Summary Heading
+let summaryH3 = document.createElement('h3');
+summaryH3.innerHTML = `Summary:`;
+summary.appendChild(summaryH3);
+
+// Summary Content
+let summaryList = document.createElement('ul');
+summary.appendChild(summaryList);
+
+
+function createSummaryLine(update) {
+  let summaryLI = document.createElement('li');
+  summaryLI.innerHTML = `<li>${update}</li>`;
+  summaryList.appendChild(summaryLI);
 }
