@@ -1,3 +1,19 @@
+# About This App:
+For Techtonica, we practiced creating a constructor and ensuring those methods worked with a full web page using just HTML, CSS, and JavaScript.
+
+For this challenge, I learned a lot about manipulating DOM elements solely through scripts.
+
+With this app, the user, "Billy", can make a "deposit" or "transfer" to another user, as so:
+![gif of adding a deposit or transfer](./bank-basic-fxn.gif)
+
+Once the user makes a deposit or transfer, this app will add a summary section:
+ ![a screenshot of the summary](./summary.png)
+
+We also have basic validation:
+![gif of validation](./validation.gif)
+
+---
+#Spec
 ### Modeling a bank account
 
 Write a program that creates an `account` object with the following characteristics:
