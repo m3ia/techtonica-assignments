@@ -21,13 +21,14 @@ console.log(prepSection);
 // prepSection.appendChild('prepList');
 
 const prepList = d.getElementById('prepList');
+
 for (let i in recipeInfo) {
     let li = d.createElement('li');
     li.setAttribute('class', 'prepItem');
     li.setAttribute('id', i);
     li.innerHTML = `
-    ${i}: <br>
-    ${recipeInfo[i]}
+    <strong>${i}:</strong>
+    <br>${recipeInfo[i]}
     `;
     prepList.appendChild(li);
 
