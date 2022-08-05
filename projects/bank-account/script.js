@@ -86,7 +86,7 @@ div1h2.setAttribute('id', 'div1h2');
 description.appendChild(div1);
 div1.appendChild(div1h2);
 div1.appendChild(p);
-div1h2.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`
+div1h2.innerHTML = `Current Balance: <br><span id="balance-span">$${billy.balance}</span>`
 let userUpdate = document.createElement('p');
 userUpdate.setAttribute('id', 'userUpdate');
 userUpdate.style.color = 'blue';
@@ -98,11 +98,11 @@ function updateBalanceDescription() {
   let y = document.getElementById("div1h2");
 
   if (billy.balance > 0) {
-    y.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
+    y.innerHTML = `Current Balance: <br><span id="balance-span">$${billy.balance}</span>`;
     let x = document.getElementById('balance-span');
-    x.style.color = 'green';
+    // x.style.color = 'green';
   } else {
-    y.innerHTML = `Currently, your balance is: <span id="balance-span">$${billy.balance}</span>.`;
+    y.innerHTML = `Current Balance: <br><span id="balance-span">$${billy.balance}</span>`;
     let x = document.getElementById('balance-span');
     x.style.color = 'red';
     transferSection.style.visibility = 'hidden';

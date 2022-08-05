@@ -1,0 +1,7 @@
+#div1h2 {
+    border-radius: 10px;
+    border: 2px solid blue;
+    background-image: linear-gradient(to left bottom, #000814, #002244, #003779, #004cb1, #005eea);
+    padding: 15px;
+    color: white;
+}
