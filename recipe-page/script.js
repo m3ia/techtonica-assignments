@@ -33,3 +33,8 @@ for (let i in recipeInfo) {
     prepList.appendChild(li);
 
 }
+
+let hamburgerNav = d.getElementById('hamburgerInput');
+if (hamburgerNav.checked) {
+    console.log('checked!');
+}
