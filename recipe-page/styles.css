@@ -14,6 +14,7 @@ body {
     margin: 0px;
     font-size: 20px;
     min-height: 100vh;
+    min-width: 470px;
   }
 
 /* Hamburger Menu Nav */
@@ -113,6 +114,7 @@ body {
     list-style-type: none;
     margin-left: 60px;
     margin-right: 60px;
+    align-self: flex-end;
 }
 
 .navBar {
@@ -223,12 +225,17 @@ footer {
 }
 
 #logoFooter {
-    padding: 100px;
-    margin: 100px;
+    max-width: 500px;
 }
 /* Media Queries */
 /* For tablet size or smaller */
-@media(max-width: 700px) {
+@media(max-width: 966px) {
+    #burgerBtn {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     #logoImg {
         /* align-self: flex-end; */
         /* min-width: 50px; */
@@ -236,10 +243,12 @@ footer {
     }
 
     #burgerLogo {
-        display: inline-block;
-        align-self: right;
+        display: inline;
+        /* align-self: right; */
         min-width: 20%;
-        max-width: 50%;
+        max-width: 70%;
+        margin-right: 50px;
+        margin-bottom: 20px;
     }
 
     #logoFooter {
@@ -258,8 +267,8 @@ footer {
         height: 50px;
         border: none;
         padding: 0px;
-        margin: 20px;
-        margin-top: 90px;
+        margin-left: 20px;
+        margin-top: 10px;
         background: linear-gradient(
           to bottom, 
           #3D0E61, #3D0E61 20%, 
@@ -299,3 +308,8 @@ footer {
     
 } 
 
+@media (max-width: 330px) {
+    #burgerLogo {
+        display: none;
+    }
+}
