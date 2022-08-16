@@ -67,6 +67,7 @@ wrappingDiv.setAttribute('id', 'wrapper');
 wrappingDiv.style.padding = '50px';
 wrappingDiv.style.border = '2px solid black';
 wrappingDiv.style.borderRadius = '10px';
+wrappingDiv.style.width = '500px';
 document.body.appendChild(wrappingDiv);
 
 // Header ---------------------------------
