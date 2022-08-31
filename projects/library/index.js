@@ -1,6 +1,7 @@
 // This will be your express server 
 
 import express from "express";
+import bodyParser from 'body-parser';
 import cors from "cors";
 import books from "./books.js";
 import path from 'path';
@@ -10,6 +11,10 @@ const PORT = 8080;
 
 // Configuring cors middleware
 app.use(cors());
+
+// Congfigure body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // to let the server know what directory are we working on 
 const __dirname = path.resolve();
@@ -29,5 +34,12 @@ app.get('/', (req, resp) =>{
     resp.sendFile(path.join(__dirname, 'client', 'index.html'));
 })
 
+app.post('/book', (req, res) => {
+  const book = req.body;
+  console.log(book);
+  books.push(book);
+
+  res.send("Book added to database");
+})
 
 app.listen(PORT, () => console.log(`HOLA! Server running at ${PORT}`));
