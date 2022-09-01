@@ -1,4 +1,5 @@
-async function showBooks(){
+async function showBooks() {
+  // Shows all books
   const URL = 'http://localhost:8080/api/books';
   const response = await fetch(URL);
   const responseBooks = await response.json();

@@ -35,7 +35,7 @@ app.get('/', (req, res) =>{
 })
 
 // Create a new book
-app.post('/book', (req, res) => {
+app.post('/new-book', (req, res) => {
   const book = req.body;
   console.log(book);
   books.push(book);
@@ -43,5 +43,27 @@ app.post('/book', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'index.html'));
   console.log("Book added to database");
 })
+
+
+// Get a single book by ISBN
+app.get('/book/:isbn', (req, res) => {
+  const isbn = req.params.isbn;
+
+  // Search for books based on isbn
+  // for (let book of books) {
+  //   if (book.isbn === isbn) {
+  //     res.json(book);
+  //     return;
+  //   }
+  // }
+
+  // Filter books based on param
+  const requestedBook = books.filter(book => book.isbn === isbn);
+  if (requestedBook.length > 0) {
+    res.send(JSON.stringify(requestedBook[0]));
+  } else {
+    res.status(404).send('Book not found');
+  }
+});
 
 app.listen(PORT, () => console.log(`HOLA! Server running at ${PORT}`));
