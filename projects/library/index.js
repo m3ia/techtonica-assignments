@@ -41,8 +41,9 @@ app.post('/new-book', (req, res) => {
   console.log(book);
   books.push(book);
 
-  res.sendFile(path.join(__dirname, 'client', 'index.html'));
+  res.redirect('http://localhost:8080');
   console.log("Book added to database");
+  console.log(path.join(__dirname, 'client', 'index.html'));
 })
 
 
