@@ -22,8 +22,8 @@ app.use(express.static('client'));
 
 // /api/books
 //creates an endpoint for the route `/api/books` that prints all the books 
-app.get('/api/books', (req, resp) =>{
-    resp.json(books);
+app.get('/api/books', (req, res) =>{
+    res.json(books);
 
 })
 
@@ -34,12 +34,14 @@ app.get('/', (req, resp) =>{
     resp.sendFile(path.join(__dirname, 'client', 'index.html'));
 })
 
+// Create a new book
 app.post('/book', (req, res) => {
   const book = req.body;
   console.log(book);
   books.push(book);
 
-  res.send("Book added to database");
+  res.sendFile(path.join(__dirname, 'client', 'index.html'));
+  console.log("Book added to database");
 })
 
 app.listen(PORT, () => console.log(`HOLA! Server running at ${PORT}`));
