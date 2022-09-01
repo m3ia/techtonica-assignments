@@ -25,6 +25,45 @@
       <div class="row" id="books"></div>
     </div>
 
+    <div id="editBookModal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Book</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form id="editForm" method="PUT">
+              <div class="form-group">
+                <label for="newIsbn">ISBN</label>
+                <input class="form-control" name="newIsbn" id="newIsbn">
+              </div>
+              <div class="form-group">
+                <label for="newTitle">Title</label>
+                <input class="form-control" name="newTitle" id="newTitle">
+              </div>
+              <div class="form-group">
+                <label for="newAuthor">Author</label>
+                <input class="form-control" name="newAuthor" id="newAuthor">
+              </div>
+              <div class="form-group">
+                <label for="newFormat">Format</label>
+                <select class="form-control" name="newFormat" id="newFormat">
+                  <option>Hardback</option>
+                  <option>Paperback</option>
+                  <option>e-book</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

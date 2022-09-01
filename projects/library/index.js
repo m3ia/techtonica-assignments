@@ -84,4 +84,18 @@ app.delete('/book/:isbn', (req, res) => {
   }
 })
 
+// Edit a book
+app.put('/book/:isbn', (req, res) => {
+  const isbn = req.params.isbn;
+  const newBook = req.body;
+
+  for (let book of books) {
+    if (book.isbn === isbn) {
+      book = newBook;
+    }
+  }
+
+  res.send('Book is edited');
+  console.log('Book is edited');
+});
 app.listen(PORT, () => console.log(`HOLA! Server running at ${PORT}`));
