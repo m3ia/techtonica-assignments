@@ -19,7 +19,7 @@ async function showBooks() {
           </div>  
           <div class="card-footer">
             <button type="button" class="btn btn-primary edit-btn">Edit</button>
-            <button type="button" class="btn btn-danger delete-btn">Delete</button>
+            <button type="button" class="btn btn-danger delete-btn" onClick="deleteBook(${book.isbn})">Delete</button>
           </div>
         </div>
       </div>
@@ -29,3 +29,13 @@ async function showBooks() {
 }
 
 showBooks();
+
+const deleteBook = (isbn) => {
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open("DELETE", `http://localhost:8080/book/${isbn}`, false);
+  xhttp.send();
+
+  // reload
+  location.reload();
+}

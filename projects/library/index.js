@@ -3,9 +3,10 @@
 import express from "express";
 import bodyParser from 'body-parser';
 import cors from "cors";
-import books from "./books.js";
+import originalBooks from "./books.js";
 import path from 'path';
 
+let books = originalBooks;
 const app = express();
 const PORT = 8080;
 
@@ -65,5 +66,21 @@ app.get('/book/:isbn', (req, res) => {
     res.status(404).send('Book not found');
   }
 });
+
+// Delete a book
+app.delete('/book/:isbn', (req, res) => {
+  const isbn = req.params.isbn;
+
+  let booksInitialLength = books.length;
+  books = books.filter(book => book.isbn !== isbn);
+  let booksNewLength = books.length;
+  
+  if (booksInitialLength === booksNewLength) {
+    res.send('Book deleted');
+    console.log('Book deleted');
+  } else {
+    res.status(404).send('Cannot delete. Book not found');
+  }
+})
 
 app.listen(PORT, () => console.log(`HOLA! Server running at ${PORT}`));
