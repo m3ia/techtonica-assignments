@@ -28,10 +28,10 @@ app.get('/api/books', (req, res) =>{
 })
 
 //this is route
-app.get('/', (req, resp) =>{
+app.get('/', (req, res) =>{
     // resp.send("Hello Techtonica this will be my first REST API");
     // open the index.html file that is in the client folder in your path
-    resp.sendFile(path.join(__dirname, 'client', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client', 'index.html'));
 })
 
 // Create a new book
